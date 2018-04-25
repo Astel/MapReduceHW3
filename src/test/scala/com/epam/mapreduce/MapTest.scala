@@ -13,7 +13,7 @@ import org.scalatest.mockito.MockitoSugar
 class MapTest extends FlatSpec with MockitoSugar {
   val one = new IntWritable(1)
 
-  it should "output the words split on spaces" in {
+  it should "check write cityname, size and os to context" in {
     val mapper = new Map
     val context = mock[mapper.Context]
     when(context.getCacheFiles).thenReturn(Array(getClass.getResource("/city_en.txt").toURI))

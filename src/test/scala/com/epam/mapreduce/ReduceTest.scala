@@ -9,7 +9,7 @@ import org.scalatest.mockito.MockitoSugar
 import scala.collection.JavaConverters._
 
 class ReduceTest extends FlatSpec with MockitoSugar {
-  it should "output the ip, average and total" in {
+  it should "output cityname and total count" in {
     val reducer = new Reduce
     val context = mock[reducer.Context]
 

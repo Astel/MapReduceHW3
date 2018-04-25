@@ -8,6 +8,9 @@ import org.apache.hadoop.mapreduce.Reducer
 
 import scala.collection.JavaConverters._
 
+/*
+ * Sum count and save info about Operation System
+ */
 class Combiner extends Reducer[Text, Record, Text, Record] {
   override def reduce(key: Text, values: lang.Iterable[Record], context: Reducer[Text, Record, Text, Record]#Context): Unit = {
     val sum = values.asScala.foldLeft(new Record())((l, r) => {

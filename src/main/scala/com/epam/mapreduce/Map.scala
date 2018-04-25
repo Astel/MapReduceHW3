@@ -8,6 +8,11 @@ import org.apache.hadoop.mapreduce.Mapper
 
 import scala.io.Source
 
+/*
+ * Mapper from text format to key = cityname, value = (operating system, count = 1)
+ * write only if price more than 250
+ * os used for partitioner
+ */
 class Map extends Mapper[LongWritable, Text, Text, Record] {
   override def map(
       key: LongWritable,
@@ -24,6 +29,7 @@ class Map extends Mapper[LongWritable, Text, Text, Record] {
 
       val os = UserAgent.parseUserAgentString(list(4)).getOperatingSystem.getGroup.getName
 
+      //
       val cityName = Source
         .fromURI(cities)
         .getLines()
