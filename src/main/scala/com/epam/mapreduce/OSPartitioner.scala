@@ -6,6 +6,6 @@ import org.apache.hadoop.mapreduce.Partitioner
 
 class OSPartitioner extends Partitioner[Text, Record]{
   override def getPartition(key: Text, value: Record, i: Int): Int = {
-    value.os.hashCode
+    value.os.hashCode % i
   }
 }
